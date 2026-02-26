@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="site.webmanifest">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Luna — Luna Hack</title>
+  <meta name="description" content="Mini documentario sulla Luna: origine, orbita, fasi lunari, eclissi e consigli di osservazione. Con spazi per inserire immagini." />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="progress" aria-hidden="true"><span></span></div>
+
+  <header class="hero">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="glow2" aria-hidden="true"></div>
+    <div class="container">
+      <span class="badge reveal"><span class="dot" aria-hidden="true"></span>Luna</span>
+      <h1 class="reveal" style="transition-delay:.06s">Un mini <span class="grad">documentario</span> sulla Luna</h1>
+      <p class="reveal" style="transition-delay:.12s">Origine, orbita, fasi lunari ed eclissi — con spazi pronti per inserire le tue immagini.</p>
+      <div class="cta reveal" style="transition-delay:.18s">
+        <a class="btn primary" href="#intro">Inizia</a>
+        <a class="btn" href="#fasi">Fasi lunari</a>
+        <a class="btn" href="#osservare">Come osservarla</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav">
+    <div class="container wrap">
+      <a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span><span>Margherita Hack</span></a>
+      <nav class="navlinks" data-navlinks aria-label="Navigazione">
+        <a data-nav href="index.html">Home</a>
+        <a data-nav href="carriera.html">Carriera</a>
+        <a data-nav href="contributi.html">Luna</a>
+        <a data-nav href="vita.html">Vita</a>
+        <a data-nav href="pensiero.html">Hack &amp; Gjergo</a>
+        <a data-nav href="fonti.html">Fonti</a>
+      </nav>
+    </div>
+  </div>
+
+  <main>
+    <section id="intro">
+      <div class="container grid">
+        <article class="card reveal">
+          <h2>1) Che cos’è la Luna </h2>
+          <p>
+            La Luna è il nostro satellite naturale: un corpo roccioso che riflette la luce del Sole e che, con la sua gravità, influenza
+            fenomeni terrestri come le <strong>maree</strong>. È anche un “laboratorio” perfetto per imparare a osservare il cielo: è vicina, luminosa
+            e cambia volto notte dopo notte.
+          </p>
+          <div class="pillrow">
+            <span class="pill">Satellite naturale</span>
+            <span class="pill">Riflette il Sole</span>
+            <span class="pill">Maree</span>
+          </div>
+        </article>
+
+        <aside class="card reveal" style="transition-delay:.08s">
+          <figure class="tmedia" style="margin-top:10px">
+            <img src="assets/moon-hero.jpg" alt="La Luna" loading="lazy" data-fallback="moon" />
+          </figure>
+        </aside>
+      </div>
+    </section>
+
+    <section id="origine">
+      <div class="container grid">
+        <article class="card reveal">
+          <h2>2) Orbita, rotazione e il “lato nascosto”</h2>
+          <p>
+            La Luna compie un’orbita attorno alla Terra e ruota anche su se stessa. La cosa interessante è che i due tempi sono (quasi)
+            uguali: per questo motivo ci mostra sempre la stessa faccia. Il cosiddetto “lato nascosto” non è sempre buio: è semplicemente
+            quello che dalla Terra non vediamo mai direttamente.
+          </p>
+          <ul class="nice-list">
+            <li><strong>Rotazione sincrona:</strong> stessa faccia verso di noi</li>
+            <li><strong>Fasi:</strong> cambiano per la geometria Sole–Terra–Luna</li>
+            <li><strong>Eclissi:</strong> servono allineamenti particolari</li>
+          </ul>
+        </article>
+
+        <aside class="card reveal" style="transition-delay:.08s">
+          <h3>Numeri chiave</h3>
+          <div class="kpi">
+            <div class="tile">
+              <div class="n">384.400</div>
+              <div class="t">km • distanza media</div>
+            </div>
+            <div class="tile">
+              <div class="n">27,3</div>
+              <div class="t">giorni • periodo “sidereo”</div>
+            </div>
+            <div class="tile">
+              <div class="n">29,5</div>
+              <div class="t">giorni • ciclo delle fasi</div>
+            </div>
+          </div>
+          <p style="margin-top:10px; opacity:.82">(Valori arrotondati: perfetti per un mini documentario scolastico.)</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="fasi">
+      <div class="container">
+        <div class="card reveal">
+          <h2>3) Le fasi lunari </h2>
+          <p>
+            Le fasi non sono “ombra della Terra”: sono la parte illuminata dal Sole che riusciamo a vedere dalla Terra.
+          </p>
+
+          <div class="timeline" style="margin-top:14px">
+            <div class="titem left reveal">
+              <div class="side"><div class="box">
+                <div class="date">Fase 1</div>
+                <h4>Luna nuova</h4>
+                <p>La Luna è tra Terra e Sole: dal nostro punto di vista è quasi invisibile. Ottimo momento per osservare stelle e cielo profondo.</p>
+                <figure class="tmedia">
+                  <img src="assets/moon-01-nuova.jpg" alt="Luna nuova" loading="lazy" data-fallback="moon" />                </figure>
+              </div></div>
+              <div class="dot" aria-hidden="true"></div>
+              <div class="side"></div>
+            </div>
+
+            <div class="titem right reveal">
+              <div class="side"></div>
+              <div class="dot" aria-hidden="true"></div>
+              <div class="side"><div class="box">
+                <div class="date">Fase 2</div>
+                <h4>Falce crescente</h4>
+                <p>Appare una sottile falce dopo il tramonto. Bellissima da fotografare vicino all’orizzonte con un paesaggio.</p>
+                <figure class="tmedia">
+                  <img src="assets/moon-02-falce-crescente.jpg" alt="Falce crescente" loading="lazy" data-fallback="moon" />
+                </figure>
+              </div></div>
+            </div>
+
+            <div class="titem left reveal">
+              <div class="side"><div class="box">
+                <div class="date">Fase 3</div>
+                <h4>Primo quarto</h4>
+                <p>Metà disco illuminato. È la fase migliore per vedere i crateri con contrasto (terminatore netto).</p>
+                <figure class="tmedia">
+                  <img src="assets/moon-03-primo-quarto.jpg" alt="Primo quarto" loading="lazy" data-fallback="moon" />
+                </figure>
+              </div></div>
+              <div class="dot" aria-hidden="true"></div>
+              <div class="side"></div>
+            </div>
+
+            <div class="titem right reveal">
+              <div class="side"></div>
+              <div class="dot" aria-hidden="true"></div>
+              <div class="side"><div class="box">
+                <div class="date">Fase 4</div>
+                <h4>Gibbosa crescente</h4>
+                <p>Più di metà illuminata. La luminosità aumenta: ottima per foto “cinematografiche” con cielo blu in crepuscolo.</p>
+                <figure class="tmedia">
+                  <img src="assets/moon-04-gibbosa-crescente.jpg" alt="Gibbosa crescente" loading="lazy" data-fallback="moon" />
+                </figure>
+              </div></div>
+            </div>
+
+            <div class="titem left reveal">
+              <div class="side"><div class="box">
+                <div class="date">Fase 5</div>
+                <h4>Luna piena</h4>
+                <p>Disco quasi totalmente illuminato. È scenografica, ma i dettagli dei crateri sono meno contrastati.</p>
+                <figure class="tmedia">
+                  <img src="assets/moon-05-piena.jpg" alt="Luna piena" loading="lazy" data-fallback="moon" />
+                </figure>
+              </div></div>
+              <div class="dot" aria-hidden="true"></div>
+              <div class="side"></div>
+            </div>
+
+            <div class="titem right reveal">
+              <div class="side"></div>
+              <div class="dot" aria-hidden="true"></div>
+              <div class="side"><div class="box">
+                <div class="date">Fase 6</div>
+                <h4>Gibbosa calante</h4>
+                <p>Dopo la piena, la parte illuminata diminuisce. Spesso visibile nella seconda parte della notte / mattino presto.</p>
+                <figure class="tmedia">
+                  <img src="assets/moon-06-gibbosa-calante.jpg" alt="Gibbosa calante" loading="lazy" data-fallback="moon" />
+                </figure>
+              </div></div>
+            </div>
+
+            <div class="titem left reveal">
+              <div class="side"><div class="box">
+                <div class="date">Fase 7</div>
+                <h4>Ultimo quarto</h4>
+                <p>Altra metà disco illuminato, con terminatore opposto rispetto al primo quarto. Ottimo per dettagli e rilievi.</p>
+                <figure class="tmedia">
+                  <img src="assets/moon-07-ultimo-quarto.jpg" alt="Ultimo quarto" loading="lazy" data-fallback="moon" />
+                </figure>
+              </div></div>
+              <div class="dot" aria-hidden="true"></div>
+              <div class="side"></div>
+            </div>
+
+            <div class="titem right reveal">
+              <div class="side"></div>
+              <div class="dot" aria-hidden="true"></div>
+              <div class="side"><div class="box">
+                <div class="date">Fase 8</div>
+                <h4>Falce calante</h4>
+                <p>Una falce sottile prima dell’alba. Se hai un paesaggio bello, è una delle foto più eleganti.</p>
+                <figure class="tmedia">
+                  <img src="assets/moon-08-falce-calante.jpg" alt="Falce calante" loading="lazy" data-fallback="moon" />
+                </figure>
+              </div></div>
+            </div>
+          </div>
+
+          <div class="pillrow" style="margin-top:16px">
+            <a class="btn" href="#eclissi">Vai alle eclissi</a>
+            <a class="btn" href="#osservare">Consigli pratici</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="eclissi">
+      <div class="container grid">
+        <article class="card reveal">
+          <h2>4) Eclissi: quando l’allineamento è perfetto</h2>
+          <p>
+            Le eclissi non accadono ogni mese perché l’orbita lunare è inclinata rispetto al piano dell’orbita terrestre.
+            Quando però Sole, Terra e Luna si allineano vicino ai punti giusti, possiamo avere:
+          </p>
+          <ul class="nice-list">
+            <li><strong>Eclissi di Luna:</strong> la Terra proietta la sua ombra sulla Luna (visibile da molti luoghi, se è notte)</li>
+            <li><strong>Eclissi di Sole:</strong> la Luna copre il Sole (fenomeno localizzato; serve protezione o filtri adeguati)</li>
+          </ul>
+                  <div class="pillrow" style="margin-top:12px">
+                <a class="btn" href="index.html">Torna alla home</a>
+                <a class="btn" href="carriera.html">Timeline Hack</a>
+              </div>
+        </article>
+
+        <aside class="card reveal" style="transition-delay:.08s">
+          <h3>Eclisse</h3>
+          <figure class="tmedia">
+            <img src="assets/eclipse-01.jpg" alt="Eclissi" loading="lazy" data-fallback="moon" />
+          </figure>
+        </aside>
+      </div>
+    </section>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container foot">
+      <div>© <span data-year></span> • Luna Hack</div>
+      <div><a href="index.html">Home</a> · <a href="carriera.html">Carriera</a> · <a href="pensiero.html">Hack &amp; Gjergo</a></div>
+      <div class="credits">Realizzato da: <span class="mono">Rigers Xhuferaj</span> · <span class="mono">Raisa Halili</span> · <span class="mono">Florjan Deda</span></div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -312,9 +312,17 @@
   const canvas = document.getElementById('stars');
   if (!canvas || prefersReduced) return; // keep page calm
 
+  // On low-end / mobile devices, skip canvas entirely to prevent crashes
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const isLowEnd = navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2;
+  if (isMobile || isLowEnd) {
+    canvas.style.display = 'none';
+    return;
+  }
+
   const ctx = canvas.getContext('2d', { alpha: true });
   let W = 0, H = 0;
-  const DPR = Math.min(2, window.devicePixelRatio || 1);
+  const DPR = Math.min(1.5, window.devicePixelRatio || 1); // cap DPR to save memory
 
   const resize = () => {
     W = canvas.clientWidth;
@@ -401,6 +409,7 @@
 
   let lastT = 0;
   const draw = (t = 0) => {
+    if (animPaused) { requestAnimationFrame(draw); return; }
     const dt = lastT === 0 ? 16 : t - lastT; // safe dt on first frame
     lastT = t;
     ctx.clearRect(0, 0, W, H);
@@ -426,6 +435,12 @@
     drawShooters(dt);
     requestAnimationFrame(draw);
   };
+
+  // Pause when tab hidden to save memory
+  let animPaused = false;
+  document.addEventListener('visibilitychange', () => {
+    animPaused = document.hidden;
+  });
 
   // boot
   const boot = () => {

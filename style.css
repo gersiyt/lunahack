@@ -554,9 +554,7 @@ footer{
 }
 
 /* Spazio a destra per evitare sovrapposizioni col testo */
-@media (min-width: 980px){
-  .hero .container{padding-right:340px}
-}
+/* padding-right handled by moon-wrap rule below */
 
 /* Look più “premium” */
 .carousel.mini{margin-top:0}
@@ -584,7 +582,6 @@ footer{
     max-width:92vw;
     margin:18px auto 0;
   }
-  .hero .container{padding-right:0}
 }
 
 @media (max-width: 720px){

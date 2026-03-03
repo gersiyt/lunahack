@@ -340,7 +340,69 @@
     }
   };
 
-  const draw = () => {
+  // ---------- Shooting Stars ----------
+  const shooters = [];
+  const spawnShooter = () => {
+    shooters.push({
+      x: rand(W * 0.05, W * 0.75),
+      y: rand(0, H * 0.35),
+      len: rand(160, 280),
+      speed: rand(14, 22),
+      angle: Math.PI / 5 + rand(-0.12, 0.12),
+      alpha: 1,
+      fade: rand(0.014, 0.022)
+    });
+  };
+
+  let shooterTimer = 0;
+  let nextShoot = rand(1500, 3500); // first one sooner
+  let firstFrame = true;
+
+  const drawShooters = (dt) => {
+    // clamp dt to avoid huge jump on first frame
+    const safeDt = Math.min(dt, 100);
+    shooterTimer += safeDt;
+    if (shooterTimer > nextShoot) {
+      spawnShooter();
+      shooterTimer = 0;
+      nextShoot = rand(2500, 6000);
+    }
+    for (let i = shooters.length - 1; i >= 0; i--) {
+      const s = shooters[i];
+      s.x += Math.cos(s.angle) * s.speed;
+      s.y += Math.sin(s.angle) * s.speed;
+      s.alpha -= s.fade;
+      if (s.alpha <= 0) { shooters.splice(i, 1); continue; }
+
+      const tailX = s.x - Math.cos(s.angle) * s.len;
+      const tailY = s.y - Math.sin(s.angle) * s.len;
+      const grad = ctx.createLinearGradient(tailX, tailY, s.x, s.y);
+      grad.addColorStop(0, `rgba(226,232,240,0)`);
+      grad.addColorStop(0.6, `rgba(180,220,255,${s.alpha * 0.7})`);
+      grad.addColorStop(1, `rgba(255,255,255,${s.alpha})`);
+
+      ctx.beginPath();
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 2;
+      ctx.moveTo(tailX, tailY);
+      ctx.lineTo(s.x, s.y);
+      ctx.stroke();
+
+      // bright tip
+      ctx.beginPath();
+      const tipGlow = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, 6);
+      tipGlow.addColorStop(0, `rgba(255,255,255,${s.alpha})`);
+      tipGlow.addColorStop(1, `rgba(255,255,255,0)`);
+      ctx.arc(s.x, s.y, 6, 0, Math.PI * 2);
+      ctx.fillStyle = tipGlow;
+      ctx.fill();
+    }
+  };
+
+  let lastT = 0;
+  const draw = (t = 0) => {
+    const dt = lastT === 0 ? 16 : t - lastT; // safe dt on first frame
+    lastT = t;
     ctx.clearRect(0, 0, W, H);
 
     // subtle nebula haze
@@ -360,6 +422,8 @@
       ctx.arc(st.x, st.y, st.r, 0, Math.PI * 2);
       ctx.fill();
     }
+
+    drawShooters(dt);
     requestAnimationFrame(draw);
   };
 
@@ -367,11 +431,83 @@
   const boot = () => {
     resize();
     makeStars();
-    draw();
+    requestAnimationFrame(draw);
   };
   window.addEventListener('resize', () => {
     resize();
     makeStars();
   }, { passive: true });
   boot();
+
+  // ---------- Parallax Moon ----------
+  const moonWrap = document.querySelector('.moon-wrap');
+  if (moonWrap) {
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      // moon moves at 30% of scroll speed — floats "behind" content
+      moonWrap.style.transform = `translateY(calc(-52% + ${scrollY * 0.3}px))`;
+    }, { passive: true });
+  }
+
+})();
+
+// ---------- Page Fade Transitions ----------
+(function(){
+  // inject fade overlay
+  const overlay = document.createElement('div');
+  overlay.id = 'page-fade';
+  document.body.appendChild(overlay);
+
+  // fade in on load
+  requestAnimationFrame(() => {
+    overlay.classList.add('fade-out');
+  });
+
+  // fade out on internal link clicks
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href]');
+    if (!link) return;
+    const href = link.getAttribute('href');
+    // only internal .html links, not anchors
+    if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto')) return;
+    e.preventDefault();
+    overlay.classList.remove('fade-out');
+    setTimeout(() => { window.location.href = href; }, 320);
+  });
+})();
+
+
+
+// ---------- Image fade-in on load ----------
+(function(){
+  document.querySelectorAll('img').forEach(img => {
+    if (img.complete && img.naturalHeight !== 0) return;
+    img.classList.add('img-fade');
+    img.addEventListener('load', () => img.classList.add('loaded'), { once: true });
+    img.addEventListener('error', () => img.classList.add('loaded'), { once: true });
+  });
+})();
+
+// ---------- Section Progress Nav ----------
+(function(){
+  const nav = document.getElementById('sectionNav');
+  if (!nav) return;
+
+  const items = Array.from(nav.querySelectorAll('.snav-item'));
+  const sectionIds = items.map(a => a.getAttribute('href').replace('#', ''));
+  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+  if (!sections.length) return;
+
+  const onScroll = () => {
+    const mid = window.scrollY + window.innerHeight * 0.4;
+    let active = 0;
+    sections.forEach((s, i) => {
+      if (s.offsetTop <= mid) active = i;
+    });
+    items.forEach((item, i) => item.classList.toggle('active', i === active));
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 })();

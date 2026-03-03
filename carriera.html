@@ -6,11 +6,24 @@
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="manifest" href="site.webmanifest">
   <meta charset="utf-8" />
+  <meta property="og:title" content="Carriera — Luna Hack" />
+  <meta property="og:description" content="Una carriera costruita con rigore: università, osservatori, insegnamento e leadership scientifica." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Luna Hack" />
+  <meta property="og:image" content="assets/moon-hero.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://lunahack.net/carriera.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="assets/moon-hero.jpg" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Carriera — Luna Hack</title>
-  <meta name="description" content="Carriera di Margherita Hack: studi, Osservatorio di Trieste, insegnamento e ruoli accademici." />
+  <meta name="description" content="Una carriera costruita con rigore: università, osservatori, insegnamento e leadership scientifica." />
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <canvas id="stars" aria-hidden="true"></canvas>
@@ -24,7 +37,7 @@
       <h1 class="reveal" style="transition-delay:.06s">Dalla formazione alla <span class="grad">direzione</span></h1>
       <p class="reveal" style="transition-delay:.12s">Una carriera costruita con rigore: università, osservatori, insegnamento e leadership scientifica.</p>
       <div class="cta reveal" style="transition-delay:.18s">
-        <a class="btn primary" href="luna.html">Vedi cosa ha studiato</a>
+        <a class="btn primary" href="contributi.html">Vedi cosa ha studiato</a>
         <a class="btn" href="#tappe">Vai alle tappe</a>
       </div>
     </div>
@@ -33,12 +46,15 @@
   <div class="nav">
     <div class="container wrap">
       <a class="brand" href="index.html"><span class="dot" aria-hidden="true"></span><span>Margherita Hack</span></a>
+      <button class="burger" data-burger type="button" aria-label="Apri menu" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+</button>
       <nav class="navlinks" data-navlinks aria-label="Navigazione">
         <a data-nav href="index.html">Home</a>
         <a data-nav href="carriera.html">Carriera</a>
-        <a data-nav href="luna.html">Luna</a>
+        <a data-nav href="contributi.html">Luna</a>
         <a data-nav href="vita.html">Vita</a>
-        <a data-nav href="hackegjergo.html">Hack &amp; Gjergo</a>
+        <a data-nav href="pensiero.html">Hack &amp; Gjergo</a>
         <a data-nav href="fonti.html">Fonti</a>
       </nav>
     </div>
@@ -133,7 +149,7 @@
             Una carriera scientifica diventa davvero grande quando lascia strumenti, idee e persone migliori di prima.
           </p>
           <div class="pillrow">
-            <a class="btn" href="luna.html">Vai al mini documentario sulla Luna</a>
+            <a class="btn" href="contributi.html">Vai al mini documentario sulla Luna</a>
             <a class="btn" href="vita.html">Scopri la vita privata</a>
           </div>
         </div>
@@ -144,7 +160,7 @@
 <footer>
     <div class="container foot">
       <div>© <span data-year></span> • Luna Hack</div>
-      <div><a href="index.html">Home</a> · <a href="luna.html">Luna</a> · <a href="hackegjergo.html">Hack &amp; Gjergo</a></div>
+      <div><a href="index.html">Home</a> · <a href="contributi.html">Luna</a> · <a href="pensiero.html">Hack &amp; Gjergo</a></div>
       <div class="credits">Realizzato da: <span class="mono">Rigers Xhuferaj</span> · <span class="mono">Raisa Halili</span> · <span class="mono">Florjan Deda</span></div>
     </div>
   </footer>

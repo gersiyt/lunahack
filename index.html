@@ -3,15 +3,28 @@
 <html lang="it">
 <head>
 <meta charset="utf-8"/>
+  <meta property="og:title" content="Luna Hack — Margherita Hack e la Luna" />
+  <meta property="og:description" content="Sito dedicato a Margherita Hack: vita, carriera, contributi scientifici e il legame con la Luna." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Luna Hack" />
+  <meta property="og:image" content="assets/moon-hero.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://lunahack.net/index.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="assets/moon-hero.jpg" />
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Luna Hack</title>
+<title>Luna Hack — Margherita Hack e la Luna</title>
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="manifest" href="site.webmanifest">
-<meta content="Sito dedicato a Margherita Hack: vita, carriera, contributi scientifici e Hack &amp; Gjergo." name="description"/>
+<meta name="description" content="Sito dedicato a Margherita Hack: vita, carriera, contributi scientifici e il legame con la Luna." />
 <link href="style.css" rel="stylesheet"/>
 <script defer="" src="script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
 <canvas aria-hidden="true" id="stars"></canvas>
@@ -22,12 +35,12 @@
 <div class="container">
 <span class="badge reveal">
 <span aria-hidden="true" class="dot"></span>
-        Astrofisica • Divulgatrice • Voce della scienza
+        Viva Marga · Liceo “28 Nentori” · Shkodër
       </span>
 <h1 class="reveal" style="transition-delay:.06s">Margherita <span class="grad">Hack</span> e la <span class="grad">Luna</span></h1>
 <p class="reveal" style="transition-delay:.12s">
-        Una delle figure più influenti dell'astrofisica italiana del Novecento e prima donna a dirigere l’Osservatorio Astronomico di Trieste.
-        Divulgatrice rigorosa e voce libera della scienza, impegnata anche nella difesa dei diritti civili. A noi la sua eredità.
+        Scienziata. Divulgatrice. Voce libera.<br/>
+        La prima donna a dirigere un osservatorio astronomico in Italia — e una mente che ha insegnato a milioni di persone a guardare il cielo con occhi diversi.
       </p>
 <div class="cta reveal" style="transition-delay:.18s">
 <a class="btn primary" href="carriera.html">
@@ -38,28 +51,39 @@
 <svg fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6v6l4 2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" stroke="currentColor" stroke-width="2"></path></svg>
           Timeline rapida
         </a>
-<a class="btn" href="luna.html">
+<a class="btn" href="contributi.html">
 <svg fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 19V5a2 2 0 0 1 2-2h9l5 5v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z" stroke="currentColor" stroke-width="2"></path><path d="M14 3v5h5" stroke="currentColor" stroke-width="2"></path></svg>
           La Luna
         </a>
 </div>
 </div>
-<div aria-label="Slider immagini" class="cdots" data-carousel-dots=""></div>
-</div>
-</div>
-</div>
+    <div class="moon-wrap" aria-hidden="true">
+      <div class="moon-halo"></div>
+      <div class="moon-ring"></div>
+      <div class="moon-body">
+        <div class="moon-surface"></div>
+        <div class="moon-crater c1"></div>
+        <div class="moon-crater c2"></div>
+        <div class="moon-crater c3"></div>
+        <div class="moon-crater c4"></div>
+        <div class="moon-crater c5"></div>
+      </div>
+    </div>
 </header>
 <div class="nav">
 <div class="container wrap">
 <a class="brand" href="index.html">
 <span aria-hidden="true" class="dot"></span>
 <span>Margherita Hack</span></a>
+<button class="burger" data-burger type="button" aria-label="Apri menu" aria-expanded="false">
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+</button>
 <nav aria-label="Navigazione" class="navlinks" data-navlinks="">
 <a data-nav="" href="index.html">Home</a>
 <a data-nav="" href="carriera.html">Carriera</a>
-<a data-nav="" href="luna.html">Luna</a>
+<a data-nav="" href="contributi.html">Luna</a>
 <a data-nav="" href="vita.html">Vita</a>
-<a data-nav="" href="hackegjergo.html">Hack &amp; Gjergo</a>
+<a data-nav="" href="pensiero.html">Hack &amp; Gjergo</a>
 <a data-nav="" href="fonti.html">Fonti</a>
 </nav>
 </div>
@@ -161,11 +185,11 @@
 <strong>Carriera</strong> = Una carriera costruita con rigore: università, osservatori, insegnamento e leadership scientifica.<br/>
 <strong>Luna</strong> = Origine, orbita, fasi lunari ed eclissi — con spazi pronti per inserire le tue immagini.<br/>
 <strong>Vita</strong> = Non solo scienza: carattere, scelte personali, passioni e un modo molto “terrestre” di stare nel mondo.<br/>
-<strong>Margherita Hack & Eda Gjergo</strong> = Una storia di curiosità, metodo e divulgazione: dal primo contatto al libro scritto insieme.
+<strong>Eda Gjergo & Margherita Hack</strong> = Una storia di curiosità, metodo e divulgazione: dal primo contatto al libro scritto insieme.
           </p>
 <div class="pillrow">
 <a class="btn" href="vita.html">Vai alla vita</a>
-<a class="btn" href="hackegjergo.html">Vai a Hack & Gjergo</a>
+<a class="btn" href="pensiero.html">Vai a Eda & Margherita</a>
 </div>
 </article>
 </div>
@@ -192,12 +216,13 @@
       </div>
     </div>
   </section>
+
 <footer>
 <div class="container foot">
 <div>© <span data-year=""></span> • Luna Hack</div>
 <div>
 <a href="index.html">Home</a> ·
-        <a href="luna.html">Luna</a> ·
+        <a href="contributi.html">Luna</a> ·
         <a href="vita.html">Vita</a>
 </div>
 <div class="credits">Realizzato da: <span class="mono">Rigers Xhuferaj</span> · <span class="mono">Raisa Halili</span> · <span class="mono">Florjan Deda</span></div>
